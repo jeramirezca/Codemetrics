@@ -1,33 +1,295 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 20 14.3% 4.1%;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+      --card: 0 0% 100%;
+      --card-foreground: 20 14.3% 4.1%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 20 14.3% 4.1%;
+
+      --primary: 24 9.8% 10%;
+      --primary-foreground: 60 9.1% 97.8%;
+
+      --secondary: 60 4.8% 95.9%;
+      --secondary-foreground: 24 9.8% 10%;
+
+      --muted: 60 4.8% 95.9%;
+      --muted-foreground: 25 5.3% 44.7%;
+
+      --accent: 60 4.8% 95.9%;
+      --accent-foreground: 24 9.8% 10%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 60 9.1% 97.8%;
+
+      --border: 20 5.9% 90%;
+      --input: 20 5.9% 90%;
+      --ring: 20 14.3% 4.1%;
+
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      --background: 20 14.3% 4.1%;
+      --foreground: 60 9.1% 97.8%;
+
+      --card: 20 14.3% 4.1%;
+      --card-foreground: 60 9.1% 97.8%;
+
+      --popover: 20 14.3% 4.1%;
+      --popover-foreground: 60 9.1% 97.8%;
+
+      --primary: 60 9.1% 97.8%;
+      --primary-foreground: 24 9.8% 10%;
+
+      --secondary: 12 6.5% 15.1%;
+      --secondary-foreground: 60 9.1% 97.8%;
+
+      --muted: 12 6.5% 15.1%;
+      --muted-foreground: 24 5.4% 63.9%;
+
+      --accent: 12 6.5% 15.1%;
+      --accent-foreground: 60 9.1% 97.8%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 60 9.1% 97.8%;
+
+      --border: 12 6.5% 15.1%;
+      --input: 12 6.5% 15.1%;
+      --ring: 24 5.7% 82.9%;
+    }
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .size-stat{
+    height: 20rem;
   }
+
+  h1{
+    font-size: 3rem; /* text-3xl */
+    font-weight: 800;
+    color: rgb(165 180 252);
+    margin: 1rem 0px;
+    text-align: center;
+  }
+
+  h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(165 180 252);
+    margin: 1rem 0px;
+  }
+
+  h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgb(165 180 252);
+    margin: 1rem 0px;
+  }
+
+  p{
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(165, 180, 252, 0.281); /* color of the tracking area */
+  }
+  
+  /* Customizes the scrollbar handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(165 180 252); /* color of the scroll thumb */
+    border-radius: 6px; /* roundness of the scroll thumb */
+    border: 3px solid #f0f0f0; /* creates padding around scroll thumb */
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }
+
+  .file-btn {
+    width: 330px;
+    height: 150px;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #fff;
+    border: 1.5px dashed #5d4dcc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* .file-btn:hover {
+    color: #5d4dcc;
+    background-color: #fff;
+  } */
+  
+  .file-btn span {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    /* color: #5d4dcc; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: #f1efff;
+  }
+
+  .file-card {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid rgba(117, 96, 255, 0.281);
+    border-radius: 6px;
+    padding: 8px 15px;
+  }
+  
+  .file-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .file-info h6 {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  
+  .progress-bg {
+    width: 100%;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.076);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  
+  .progress {
+    width: 0%;
+    height: 5px;
+    background-color: #5d4dcc;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+  }
+  
+  .icon {
+    font-size: 30px;
+    color: #7460ff;
+  }
+  
+  .close-icon {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .file-info button,
+  .check-circle {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #463a99;
+    background-color: #f1efff;
+    border: none;
+    border-radius: 30px;
+  }
+  
+  .upload-btn {
+    width: 330px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #7460ff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+
+
+
+
+.sectionData{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  text-align: center;
+}
+
+.subSectionData{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #172a21;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.nameData{
+  font-size: 1rem;
+  font-weight: 700;
+  color: #9fccc6;
+}
+
+.numberData{
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.functionsSection{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.functionSubsection{
+  background-color: #172a21;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.functionName{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #9fccc6;
 }

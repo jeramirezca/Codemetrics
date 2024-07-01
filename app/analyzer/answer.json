@@ -1,0 +1,390 @@
+{
+    "descriptionByGemini": "**classGSVicio:**\n\n* **def__init__(self,nTInicial,producciones):**\n    * Initializes a grammar service object with the start symbol and productions.\n    * Converts productions to lists of symbols.\n    * Extracts terminals and removes recursion from the grammar.\n    * Factorizes the grammar to eliminate common prefixes.\n\n**classPrimero:**\n\n* **def__init__(self,gSVicio):**\n    * Initializes a firsts service object with a grammar service object.\n    * Calculates the firsts of all symbols in the grammar.\n\n**classSiguiente:**\n\n* **def__init__(self,gSVicio,primeros):**\n    * Initializes a follows service object with a grammar service object and firsts service object.\n    * Calculates the follows of all symbols in the grammar.\n\n**classConjuntosPrediccion:**\n\n* **def__init__(self,gramatica,primeros,siguientes):**\n    * Initializes a prediction sets class with a grammar, firsts, and follows objects.\n    * Calculates the prediction sets for all productions.\n\n**classLl1:**\n\n* **def__init__(self):**\n    * Initializes a LL(1) parser object and initializes its components (grammar, firsts, follows, and prediction sets).\n\n**classGrammar:**\n\n* **def__init__(self):**\n    * Initializes a grammar object with a start symbol and a set of productions.",
+    "number_of_global_variables": 0,
+    "functions": [
+        {
+            "size_without_comments": 9,
+            "size": 9,
+            "name": "extraer_terminales",
+            "start_line": 17,
+            "size_without_comments_or_empty_lines": 8,
+            "end_line": 26
+        },
+        {
+            "size_without_comments": 21,
+            "size": 21,
+            "name": "calcular_primeros_produccion",
+            "start_line": 233,
+            "size_without_comments_or_empty_lines": 20,
+            "end_line": 254
+        },
+        {
+            "size_without_comments": 3,
+            "size": 3,
+            "name": "esTerminal",
+            "start_line": 155,
+            "size_without_comments_or_empty_lines": 2,
+            "end_line": 158
+        },
+        {
+            "size_without_comments": 26,
+            "size": 26,
+            "name": "factorizar_gramatica",
+            "start_line": 63,
+            "size_without_comments_or_empty_lines": 23,
+            "end_line": 89
+        },
+        {
+            "size_without_comments": 13,
+            "size": 13,
+            "name": "encontrar_prefijo_comun",
+            "start_line": 89,
+            "size_without_comments_or_empty_lines": 13,
+            "end_line": 102
+        },
+        {
+            "size_without_comments": 26,
+            "size": 26,
+            "name": "calcularSiguientes",
+            "start_line": 176,
+            "size_without_comments_or_empty_lines": 24,
+            "end_line": 202
+        },
+        {
+            "size_without_comments": 3,
+            "size": 3,
+            "name": "getPrimeros",
+            "start_line": 158,
+            "size_without_comments_or_empty_lines": 2,
+            "end_line": 161
+        },
+        {
+            "size_without_comments": 4,
+            "size": 4,
+            "name": "getnTInicial",
+            "start_line": 111,
+            "size_without_comments_or_empty_lines": 3,
+            "end_line": 115
+        },
+        {
+            "size_without_comments": 21,
+            "size": 21,
+            "name": "quitar_recursividad",
+            "start_line": 42,
+            "size_without_comments_or_empty_lines": 21,
+            "end_line": 63
+        },
+        {
+            "size_without_comments": 13,
+            "size": 13,
+            "name": "calcular_conjuntos_prediccion",
+            "start_line": 220,
+            "size_without_comments_or_empty_lines": 13,
+            "end_line": 233
+        },
+        {
+            "size_without_comments": 11,
+            "size": 11,
+            "name": "_inicializar_componentes",
+            "start_line": 271,
+            "size_without_comments_or_empty_lines": 10,
+            "end_line": 282
+        },
+        {
+            "size_without_comments": 4,
+            "size": 6,
+            "name": "resultados",
+            "start_line": 282,
+            "size_without_comments_or_empty_lines": 3,
+            "end_line": 288
+        },
+        {
+            "size_without_comments": 20,
+            "size": 20,
+            "name": "calcularPrimerosDeProduccion",
+            "start_line": 135,
+            "size_without_comments_or_empty_lines": 19,
+            "end_line": 155
+        },
+        {
+            "size_without_comments": 14,
+            "size": 14,
+            "name": "calcularPrimeros",
+            "start_line": 121,
+            "size_without_comments_or_empty_lines": 13,
+            "end_line": 135
+        },
+        {
+            "size_without_comments": 3,
+            "size": 3,
+            "name": "getSiguientes",
+            "start_line": 202,
+            "size_without_comments_or_empty_lines": 2,
+            "end_line": 205
+        },
+        {
+            "size_without_comments": 127,
+            "size": 127,
+            "name": "__init__",
+            "start_line": 289,
+            "size_without_comments_or_empty_lines": 127,
+            "end_line": 416
+        },
+        {
+            "size_without_comments": 6,
+            "size": 6,
+            "name": "convertir_a_listas",
+            "start_line": 11,
+            "size_without_comments_or_empty_lines": 5,
+            "end_line": 17
+        },
+        {
+            "size_without_comments": 3,
+            "size": 3,
+            "name": "getTerminales",
+            "start_line": 105,
+            "size_without_comments_or_empty_lines": 3,
+            "end_line": 108
+        },
+        {
+            "size_without_comments": 3,
+            "size": 3,
+            "name": "getProducciones",
+            "start_line": 108,
+            "size_without_comments_or_empty_lines": 3,
+            "end_line": 111
+        },
+        {
+            "size_without_comments": 3,
+            "size": 3,
+            "name": "getNoTerminales",
+            "start_line": 102,
+            "size_without_comments_or_empty_lines": 3,
+            "end_line": 105
+        },
+        {
+            "size_without_comments": 7,
+            "size": 7,
+            "name": "asignar_nuevo_no_terminal",
+            "start_line": 35,
+            "size_without_comments_or_empty_lines": 7,
+            "end_line": 42
+        }
+    ],
+    "number_of_comments_per_line": 38,
+    "number_of_classes": 6,
+    "classes": [
+        {
+            "size_without_comments": 26,
+            "size": 28,
+            "functions": [
+                "__init__",
+                "_inicializar_componentes",
+                "resultados"
+            ],
+            "name": "Ll1",
+            "start_line": 260,
+            "size_without_comments_or_empty_lines": 23,
+            "end_line": 288
+        },
+        {
+            "size_without_comments": 114,
+            "size": 114,
+            "functions": [
+                "__init__",
+                "convertir_a_listas",
+                "extraer_terminales",
+                "resultados",
+                "asignar_nuevo_no_terminal",
+                "quitar_recursividad",
+                "factorizar_gramatica",
+                "encontrar_prefijo_comun",
+                "getNoTerminales",
+                "getTerminales",
+                "getProducciones",
+                "getnTInicial"
+            ],
+            "name": "GSVicio",
+            "start_line": 1,
+            "size_without_comments_or_empty_lines": 105,
+            "end_line": 115
+        },
+        {
+            "size_without_comments": 42,
+            "size": 42,
+            "functions": [
+                "__init__",
+                "calcularSiguientes",
+                "getSiguientes",
+                "resultados"
+            ],
+            "name": "Siguiente",
+            "start_line": 169,
+            "size_without_comments_or_empty_lines": 37,
+            "end_line": 211
+        },
+        {
+            "size_without_comments": 47,
+            "size": 47,
+            "functions": [
+                "__init__",
+                "calcular_conjuntos_prediccion",
+                "calcular_primeros_produccion",
+                "resultados"
+            ],
+            "name": "ConjuntosPrediccion",
+            "start_line": 213,
+            "size_without_comments_or_empty_lines": 44,
+            "end_line": 260
+        },
+        {
+            "size_without_comments": 54,
+            "size": 54,
+            "functions": [
+                "__init__",
+                "calcularPrimeros",
+                "calcularPrimerosDeProduccion",
+                "esTerminal",
+                "getPrimeros",
+                "resultados"
+            ],
+            "name": "Primero",
+            "start_line": 115,
+            "size_without_comments_or_empty_lines": 48,
+            "end_line": 169
+        },
+        {
+            "size_without_comments": 128,
+            "size": 128,
+            "functions": [
+                "__init__"
+            ],
+            "name": "Grammar",
+            "start_line": 288,
+            "size_without_comments_or_empty_lines": 128,
+            "end_line": 416
+        }
+    ],
+    "number_of_lines": 416,
+    "function_complexities": [
+        {
+            "name": "extraer_terminales",
+            "big_o_complexity": "O(n^3)",
+            "cyclomatic_complexity": 5
+        },
+        {
+            "name": "calcular_primeros_produccion",
+            "big_o_complexity": "O(n)",
+            "cyclomatic_complexity": 8
+        },
+        {
+            "name": "esTerminal",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "factorizar_gramatica",
+            "big_o_complexity": "O(n^2)",
+            "cyclomatic_complexity": 9
+        },
+        {
+            "name": "encontrar_prefijo_comun",
+            "big_o_complexity": "O(n)",
+            "cyclomatic_complexity": 5
+        },
+        {
+            "name": "calcularSiguientes",
+            "big_o_complexity": "O(n^4)",
+            "cyclomatic_complexity": 12
+        },
+        {
+            "name": "getPrimeros",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "getnTInicial",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "quitar_recursividad",
+            "big_o_complexity": "O(n^2)",
+            "cyclomatic_complexity": 8
+        },
+        {
+            "name": "calcular_conjuntos_prediccion",
+            "big_o_complexity": "O(n^2)",
+            "cyclomatic_complexity": 4
+        },
+        {
+            "name": "_inicializar_componentes",
+            "big_o_complexity": "O(n)",
+            "cyclomatic_complexity": 2
+        },
+        {
+            "name": "resultados",
+            "big_o_complexity": "No calculable (Recursiva)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "calcularPrimerosDeProduccion",
+            "big_o_complexity": "O(n)",
+            "cyclomatic_complexity": 9
+        },
+        {
+            "name": "calcularPrimeros",
+            "big_o_complexity": "No calculable (Recursiva)",
+            "cyclomatic_complexity": 6
+        },
+        {
+            "name": "getSiguientes",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "__init__",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "convertir_a_listas",
+            "big_o_complexity": "O(n)",
+            "cyclomatic_complexity": 2
+        },
+        {
+            "name": "getTerminales",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "getProducciones",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "getNoTerminales",
+            "big_o_complexity": "O(1)",
+            "cyclomatic_complexity": 1
+        },
+        {
+            "name": "asignar_nuevo_no_terminal",
+            "big_o_complexity": "O(n)",
+            "cyclomatic_complexity": 3
+        }
+    ],
+    "number_of_code_lines": 387,
+    "number_of_functions": 30,
+    "dependencies": [
+        {
+            "name": "re",
+            "times_used": 0,
+            "used_in_functions": [],
+            "lines_used": []
+        }
+    ],
+    "number_of_for_loops": 27,
+    "number_of_if_statements": 24,
+    "number_of_while_loops": 2,
+    "number_of_comments": 10
+}
