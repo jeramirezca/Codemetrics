@@ -335,6 +335,7 @@ export default function Analyzer() {
         <h1> Analyzer</h1>
         <div></div>
       </div>
+      {/* hola */}
 
       {isAnalyzed ? (
         <div>
