@@ -104,6 +104,10 @@
     margin: 1rem 0px;
   }
 
+  strong{
+    color: #cb9ffe;
+  }
+
   p{
     font-size: 1.25rem;
     font-weight: 500;

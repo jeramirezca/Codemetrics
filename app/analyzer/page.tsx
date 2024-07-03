@@ -9,6 +9,7 @@ import { ClipLoader, SyncLoader } from "react-spinners";
 import { useState } from "react";
 import answer from "./answer.json";
 import { toast } from "react-toastify";
+import Markdown from 'react-markdown'
 
 interface FunctionDetail {
   size_without_comments: number;
@@ -215,6 +216,7 @@ export default function Analyzer() {
         );
         const response = await responseFetch.json();
         //const response: any = answer;
+        console.log(response);
 
         setCodeAnalysis(response);
         setNumberGlobalVariables(response.number_of_global_variables); //
@@ -226,12 +228,18 @@ export default function Analyzer() {
         setCodeComplexities(response.function_complexities);
         setNumberCodeLines(response.number_of_code_lines);
         setNumberFunctions(response.number_of_functions);
-        setCodeDependecies(response.dependencies);
+        
+        setCodeDependecies(response.dependencies.map((depen:DependencyDetail) => ({
+          ...depen,
+          used_in_functions: Array.from(new Set(depen.used_in_functions)),
+          lines_used: Array.from(new Set(depen.lines_used)),
+        })));
         setNumberForLoops(response.number_of_for_loops);
         setNumberWhileLoops(response.number_of_while_loops);
         setNumberIfStatements(response.number_of_if_statements);
         setNumberComments(response.number_of_comments);
         groupByComplexities(response.function_complexities);
+
         setIsAnalyzed(true);
         toast.success("Code analyzed successfully");
         fetchGemini();
@@ -259,16 +267,16 @@ export default function Analyzer() {
 
       setCodeDescription(
         responseGemini.descriptionByGemini
-          .replace(
-            /\*\*(.*?)\*\*/g,
-            "<strong style='color:#d7b3ff;'>$1</strong>"
-          )
-          .replace(/^- (.*?)(?=\n|$)/gm, "<li>$1</li>")
-          .replace(/\*(.*?)\*/g, "<li>$1</li>").replace(/^- (.*?)(?=\n|$)/gm, "<li>$1</li>")
-          .replace(
-            /^\* (.*?)(?=\n|$)/gm,
-            "<li>$1</li>"
-          )
+          // .replace(
+          //   /\*\*(.*?)\*\*/g,
+          //   "<strong style='color:#d7b3ff;'>$1</strong>"
+          // )
+          // .replace(/^- (.*?)(?=\n|$)/gm, "<li>$1</li>")
+          // .replace(/\*(.*?)\*/g, "<li>$1</li>").replace(/^- (.*?)(?=\n|$)/gm, "<li>$1</li>")
+          // .replace(
+          //   /^\* (.*?)(?=\n|$)/gm,
+          //   "<li>$1</li>"
+          // )
       );
     } catch {
       toast.error("There was an error analyzing the code with Gemini");
@@ -289,19 +297,19 @@ export default function Analyzer() {
       const responseSmell = await responseFetchSmell.json();
       setCodeSmell(
         responseSmell.smell_code_analysis
-          .replace(
-            /\*\*(.*?)\*\*/g,
-            "<strong style='color:#d7b3ff;''>$1</strong>"
-          )
-          .replace(
-            /\#\#(.*?)\#\#/g,
-            "<strong style='color:#d7b3ff;''>$1</strong>"
-          )
-          .replace(/^- (.*?)(?=\n|$)/gm, "<li>$1</li>")
-          .replace(
-            /^\* (.*?)(?=\n|$)/gm,
-            "<li>$1</li>"
-          ).replace("Code Smells", "")
+          // .replace(
+          //   /\*\*(.*?)\*\*/g,
+          //   "<strong style='color:#d7b3ff;''>$1</strong>"
+          // )
+          // .replace(
+          //   /\#\#(.*?)\#\#/g,
+          //   "<strong style='color:#d7b3ff;''>$1</strong>"
+          // )
+          // .replace(/^- (.*?)(?=\n|$)/gm, "<li>$1</li>")
+          // .replace(
+          //   /^\* (.*?)(?=\n|$)/gm,
+          //   "<li>$1</li>"
+          // ).replace("Code Smells", "")
       );
     } catch {
       toast.error("There was an error analyzing the code Smell");
@@ -344,10 +352,12 @@ export default function Analyzer() {
           ) : (
             // Asumiendo que tienes un estado llamado codeDescription que almacena tu HTML
             <div className="sectionBack">
-              <p
+              <Markdown>{codeDescription}</Markdown>
+              {/* <p
                 className="text-xl"
                 dangerouslySetInnerHTML={{ __html: codeDescription }}
-              ></p>
+              ></p> */}
+
             </div>
           )}
           <h2>General analysis: </h2>
@@ -359,7 +369,7 @@ export default function Analyzer() {
                   <p className="numberData">{numberLines}</p>
                 </div>
                 <div className="subSectionData ml-3 w-2/4">
-                  <p className="nameData">Number of commentars:</p>
+                  <p className="nameData">Number of comments:</p>
                   <p className="numberData">{numberComments}</p>
                 </div>
               </div>
@@ -369,7 +379,7 @@ export default function Analyzer() {
                   <p className="numberData">{numberCodeLines}</p>
                 </div>
                 <div className="subSectionData ml-3 w-2/4">
-                  <p className="nameData">Number comments per line:</p>
+                  <p className="nameData">Number of lines per comment:</p>
                   <p className="numberData">{numberCommentsPerLine}</p>
                 </div>
               </div>
@@ -534,7 +544,8 @@ export default function Analyzer() {
           
           <h2>Code smells analysis: </h2>
           <div className="sectionBack">
-          <p dangerouslySetInnerHTML={{ __html: codeSmell }} />
+          <Markdown>{codeSmell}</Markdown>
+          {/* <p dangerouslySetInnerHTML={{ __html: codeSmell }} /> */}
           </div>
         </div>
       ) : (
