@@ -51,7 +51,7 @@
       --secondary: 12 6.5% 15.1%;
       --secondary-foreground: 60 9.1% 97.8%;
 
-      --muted: 12 6.5% 15.1%;
+      --muted: 12 6.5% 45.1%;
       --muted-foreground: 24 5.4% 63.9%;
 
       --accent: 12 6.5% 15.1%;
@@ -66,6 +66,11 @@
     }
   }
 
+  body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #141332;
+  }	
+
   .size-stat{
     height: 20rem;
   }
@@ -73,7 +78,7 @@
   h1{
     font-size: 3rem; /* text-3xl */
     font-weight: 800;
-    color: rgb(165 180 252);
+    color: rgb(155, 199, 255);
     margin: 1rem 0px;
     text-align: center;
   }
@@ -81,19 +86,26 @@
   h2{
     font-size: 2rem;
     font-weight: 600;
-    color: rgb(165 180 252);
+    color: rgb(155, 199, 255);
     margin: 1rem 0px;
   }
 
   h3{
     font-size: 1.5rem;
     font-weight: 500;
-    color: rgb(165 180 252);
+    color: rgb(155, 199, 255);
+    margin: 1rem 0px;
+  }
+
+  h4{
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgb(155, 199, 255);
     margin: 1rem 0px;
   }
 
   p{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
   }
 
@@ -102,14 +114,15 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(165, 180, 252, 0.281); /* color of the tracking area */
+    background: #1d1d419d; /* color of the tracking area */
+    border-radius: 12px;
   }
   
   /* Customizes the scrollbar handle */
   ::-webkit-scrollbar-thumb {
-    background-color: rgb(165 180 252); /* color of the scroll thumb */
+    background-color: #464687; /* color of the scroll thumb */
     border-radius: 6px; /* roundness of the scroll thumb */
-    border: 3px solid #f0f0f0; /* creates padding around scroll thumb */
+    /*border: 3px solid #f0f0f0; /* creates padding around scroll thumb */
   }
 
   @layer base {
@@ -251,21 +264,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background-color: #172a21;
+  background-color: #1D1D41;
   padding: 1rem;
   border-radius: 1rem;
 }
 
 .nameData{
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #9fccc6;
+  color: #d7b3ff;
+}
+.functionName{
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #bf88ff;
+  min-width: 14rem;
 }
 
 .numberData{
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #FFFF;
 }
 
 .functionsSection{
@@ -281,15 +300,34 @@
 }
 
 .functionSubsection{
-  background-color: #172a21;
-  padding: 1rem;
+  background-color: #1D1D41;
+  /* color: #006d9c; */
+  padding: 1.5rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  /* min-width: 10rem; */
+  width:fit-content;
+  
 }
 
-.functionName{
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #9fccc6;
+.functionData{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ddc0ff;
+  p{
+    font-weight: 400;
+    max-width: 20rem;
+    color: #ffffff;
+  }
+}
+
+.sectionBack{
+  background-color: #1D1D41;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.blueText{
+  color:blue;
 }

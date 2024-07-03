@@ -67,7 +67,8 @@ export const columns: ColumnDef<ComplexityDetail>[] = [
 
 ]
 
-export function DataTable() {
+export function DataTable({data}: { data: ComplexityDetail[] }) {
+  // console.log(data[0]);
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -76,113 +77,113 @@ export function DataTable() {
     React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
 
-  const data = [
-    {
-      "name": "extraer_terminales",
-      "big_o_complexity": "O(n^3)",
-      "cyclomatic_complexity": 5
-  },
-  {
-      "name": "calcular_primeros_produccion",
-      "big_o_complexity": "O(n)",
-      "cyclomatic_complexity": 8
-  },
-  {
-      "name": "esTerminal",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "factorizar_gramatica",
-      "big_o_complexity": "O(n^2)",
-      "cyclomatic_complexity": 9
-  },
-  {
-      "name": "encontrar_prefijo_comun",
-      "big_o_complexity": "O(n)",
-      "cyclomatic_complexity": 5
-  },
-  {
-      "name": "calcularSiguientes",
-      "big_o_complexity": "O(n^4)",
-      "cyclomatic_complexity": 12
-  },
-  {
-      "name": "getPrimeros",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "getnTInicial",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "quitar_recursividad",
-      "big_o_complexity": "O(n^2)",
-      "cyclomatic_complexity": 8
-  },
-  {
-      "name": "calcular_conjuntos_prediccion",
-      "big_o_complexity": "O(n^2)",
-      "cyclomatic_complexity": 4
-  },
-  {
-      "name": "_inicializar_componentes",
-      "big_o_complexity": "O(n)",
-      "cyclomatic_complexity": 2
-  },
-  {
-      "name": "resultados",
-      "big_o_complexity": "No calculable (Recursiva)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "calcularPrimerosDeProduccion",
-      "big_o_complexity": "O(n)",
-      "cyclomatic_complexity": 9
-  },
-  {
-      "name": "calcularPrimeros",
-      "big_o_complexity": "No calculable (Recursiva)",
-      "cyclomatic_complexity": 6
-  },
-  {
-      "name": "getSiguientes",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "__init__",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "convertir_a_listas",
-      "big_o_complexity": "O(n)",
-      "cyclomatic_complexity": 2
-  },
-  {
-      "name": "getTerminales",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "getProducciones",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "getNoTerminales",
-      "big_o_complexity": "O(1)",
-      "cyclomatic_complexity": 1
-  },
-  {
-      "name": "asignar_nuevo_no_terminal",
-      "big_o_complexity": "O(n)",
-      "cyclomatic_complexity": 3
-  }
-  ]
+  // const data = [
+  //   {
+  //     "name": "extraer_terminales",
+  //     "big_o_complexity": "O(n^3)",
+  //     "cyclomatic_complexity": 5
+  // },
+  // {
+  //     "name": "calcular_primeros_produccion",
+  //     "big_o_complexity": "O(n)",
+  //     "cyclomatic_complexity": 8
+  // },
+  // {
+  //     "name": "esTerminal",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "factorizar_gramatica",
+  //     "big_o_complexity": "O(n^2)",
+  //     "cyclomatic_complexity": 9
+  // },
+  // {
+  //     "name": "encontrar_prefijo_comun",
+  //     "big_o_complexity": "O(n)",
+  //     "cyclomatic_complexity": 5
+  // },
+  // {
+  //     "name": "calcularSiguientes",
+  //     "big_o_complexity": "O(n^4)",
+  //     "cyclomatic_complexity": 12
+  // },
+  // {
+  //     "name": "getPrimeros",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "getnTInicial",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "quitar_recursividad",
+  //     "big_o_complexity": "O(n^2)",
+  //     "cyclomatic_complexity": 8
+  // },
+  // {
+  //     "name": "calcular_conjuntos_prediccion",
+  //     "big_o_complexity": "O(n^2)",
+  //     "cyclomatic_complexity": 4
+  // },
+  // {
+  //     "name": "_inicializar_componentes",
+  //     "big_o_complexity": "O(n)",
+  //     "cyclomatic_complexity": 2
+  // },
+  // {
+  //     "name": "resultados",
+  //     "big_o_complexity": "No calculable (Recursiva)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "calcularPrimerosDeProduccion",
+  //     "big_o_complexity": "O(n)",
+  //     "cyclomatic_complexity": 9
+  // },
+  // {
+  //     "name": "calcularPrimeros",
+  //     "big_o_complexity": "No calculable (Recursiva)",
+  //     "cyclomatic_complexity": 6
+  // },
+  // {
+  //     "name": "getSiguientes",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "__init__",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "convertir_a_listas",
+  //     "big_o_complexity": "O(n)",
+  //     "cyclomatic_complexity": 2
+  // },
+  // {
+  //     "name": "getTerminales",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "getProducciones",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "getNoTerminales",
+  //     "big_o_complexity": "O(1)",
+  //     "cyclomatic_complexity": 1
+  // },
+  // {
+  //     "name": "asignar_nuevo_no_terminal",
+  //     "big_o_complexity": "O(n)",
+  //     "cyclomatic_complexity": 3
+  // }
+  // ]
 
   const table = useReactTable({
     data,

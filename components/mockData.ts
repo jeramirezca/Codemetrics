@@ -19,7 +19,7 @@ export const doughnutChartData = {
     {
       label: "Lines in your code",
       data: [300, 50, 100],
-      backgroundColor: ["#172a21", "#5d8883", "#9fccc6"],
+      backgroundColor: ["#64CFF6", "#64A1F5", "#6473F5"],
       hoverOffset: 4,
     },
   ],

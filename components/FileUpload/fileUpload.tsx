@@ -124,7 +124,9 @@ const FileUpload = ({
               )}
             </div>
           </div>
-          {isAnalyzing? <SyncLoader
+          {isAnalyzing? 
+          
+          <SyncLoader
           className="mt-6"
               color={"rgb(165 180 252)"}
               loading={isAnalyzing}
@@ -132,10 +134,8 @@ const FileUpload = ({
               // size={150}
               // aria-label="Loading S"
               data-testid="loader"
-            />: <Button onClick={fetchAnalysis} classAdd=" upload-btn">
-            {uploadStatus === "select" || uploadStatus === "uploading"
-              ? "Analyze"
-              : "Done"}
+            />: <Button onClick={fetchAnalysis} classAdd=" mt-6">
+            Analyze
           </Button>}
           
         </>
