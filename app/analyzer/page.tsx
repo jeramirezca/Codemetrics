@@ -527,10 +527,10 @@ export default function Analyzer() {
                   Times used:<p>{dependency.times_used}</p>
                 </div>
                 <div className="functionData">
-                  Used in lines:<p>{dependency.lines_used}</p>
+                  Used in lines:<p>{dependency.lines_used.join(", ")}</p>
                 </div>
                 <div className="functionData">
-                  Used in functions:<p>{dependency.used_in_functions}</p>
+                  Used in functions:<p>{dependency.used_in_functions.join(", ")}</p>
                 </div>
               </div>
             ))}
