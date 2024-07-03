@@ -436,10 +436,13 @@ export default function Analyzer() {
               </div>
             ))}
           </div>
+          {codeFunctions.length != 0 ?
           <div className=" flex flex-col text-center">
             <h4>Number of lines per function comparison</h4>
             <DataChart type={"bar"} data={functionsChartData} />
-          </div>
+          </div>:<></>
+        }
+          
           <h2>Complexity analysis: </h2>
           <p>
             In the following table you can find a general analysis of your
@@ -449,7 +452,8 @@ export default function Analyzer() {
 
           <DataTable data={codeComplexities} /></div>
 
-          <div className="flex">
+            {codeComplexities.length != 0 ?
+            <div className="flex">
             <div className="w-2/4 flex flex-col text-center">
               <h4>BigO complexities</h4>
               <DataChart type={"bar"} data={bigOComplexityChartData} />
@@ -458,7 +462,10 @@ export default function Analyzer() {
               <h4>Cyclomatic complexities</h4>
               <DataChart type={"bar"} data={cyclomaticComplexityChartData} />
             </div>
-          </div>
+          </div>:<>
+          </>
+          }
+          
 
           <h2>Classes analysis</h2>
           <p className="text-xl">
@@ -491,10 +498,15 @@ export default function Analyzer() {
               </div>
             ))}
           </div>
+          {codeClasses.length != 0 ?
           <div className=" flex flex-col text-center">
             <h4>Number of lines per class comparison</h4>
             <DataChart type={"bar"} data={classesChartData} />
           </div>
+          :
+            <></>
+          }
+          
           <h2>Dependencies analysis: </h2>
 
           <div className="functionsSection">
@@ -513,12 +525,13 @@ export default function Analyzer() {
               </div>
             ))}
           </div>
-
+          {codeDependencies.length != 0 ?
           <div className=" flex flex-col text-center">
             <h4>Dependencies times of use comparison</h4>
             <DataChart type={"bar"} data={dependenciesChartData} />
           </div>
-
+          : <></>}
+          
           <h2>Code smells analysis: </h2>
           <div className="sectionBack">
           <p dangerouslySetInnerHTML={{ __html: codeSmell }} />
